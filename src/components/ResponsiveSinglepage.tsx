@@ -35,7 +35,7 @@ function BannerHeader() {
 
         {/* Right Banner - Pink */}
         <div className="basis-0 bg-[#ffc2c2] grow min-h-[60px] md:h-[87px] flex items-center justify-end px-3 md:px-6 py-2 md:py-3">
-          <div className="size-10 md:size-[65px]">
+          <div className="size-10 md:size-[65px] hidden md:block">
             <img
               alt="Foreningen Robust Logo"
               className="w-full h-full object-cover"
@@ -134,10 +134,10 @@ function ContentSection1({ activeSection }: { activeSection: string }) {
       </div>
 
       {/* Red section with navigation and text */}
-      <div className="basis-0 grow bg-[#d61e1e] flex items-start justify-center px-4 md:px-[12px] py-8 md:py-[112px] relative min-h-[400px] md:min-h-[600px]">
+      <div className="basis-0 grow bg-[#d61e1e] flex items-center justify-center px-4 md:px-[12px] py-8 md:py-[112px] relative min-h-[400px] md:min-h-[600px]">
         <DesktopNavigation activeItem={activeSection} />
         
-        <div className="flex flex-col gap-6 md:gap-[88px] w-full max-w-[420px] mt-8 md:mt-0">
+        <div className="flex flex-col gap-6 md:gap-[88px] w-full max-w-[420px] mt-0 md:mt-0">
           <p className="font-['Inter:Regular',sans-serif] text-white text-base md:text-[24px] leading-normal">
             The aim of ROBUST is to contribute to reaching a resilient economy within planetary boundaries, ensuring a good life for all. The collective will promote this through activities like spreading information on degrowth practices, producing eco-solidarity-based economic analyses, showcasing regenerative economy examples, fostering artistic engagement, and participating in activism.
           </p>
@@ -145,7 +145,7 @@ function ContentSection1({ activeSection }: { activeSection: string }) {
           <div className="w-full max-w-[426px] aspect-square mx-auto md:mx-0">
             <img
               alt="Nature"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain md:object-cover"
               src={imgMustafaAkinIY3NQuIybNuUnsplash1}
             />
           </div>
