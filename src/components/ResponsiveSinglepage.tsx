@@ -134,7 +134,7 @@ function ContentSection1({ activeSection }: { activeSection: string }) {
       </div>
 
       {/* Red section with navigation and text */}
-      <div className="basis-0 grow bg-[#d61e1e] flex items-center justify-center px-4 md:px-[12px] py-8 md:py-[112px] relative min-h-[400px] md:min-h-[600px]">
+      <div className="basis-0 grow bg-[#d61e1e] flex items-center justify-center px-4 md:px-[12px] py-8 md:py-[112px] relative md:min-h-[600px]">
         <DesktopNavigation activeItem={activeSection} />
         
         <div className="flex flex-col gap-6 md:gap-[88px] w-full max-w-[420px] mt-0 md:mt-0">
