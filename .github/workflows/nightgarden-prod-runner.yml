@@ -1,0 +1,33 @@
+name: Night Garden Vercel prod runner
+on:
+  push:
+    branches: [nightgarden-prod-runner-20260921]
+    paths:
+      - '.github/workflows/nightgarden-prod-runner.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare prebuilt Night Garden
+        run: |
+          set -euo pipefail
+          mkdir -p app/.vercel/output/static
+          curl -fsSL "https://raw.githubusercontent.com/lukketsvane/iverfinne.no/nightgarden-prod-20260921/.nightgarden-deploy/.vercel/output/static/index.html" -o app/.vercel/output/static/index.html
+          printf '%s' '{"version":3}' > app/.vercel/output/config.json
+          printf '%s' '{"orgId":"team_6ukeAMsNaWMRhHombsc7EIwn","projectId":"prj_XSjxkxAinLDTqN6avq3zTF4Vx2sl","projectName":"v0-image-analysis-xy_gitless"}' > app/.vercel/project.json
+          test -s app/.vercel/output/static/index.html
+
+      - name: Deploy production
+        working-directory: app
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$VERCEL_TOKEN"
+          npx --yes vercel@latest deploy --prebuilt --prod --yes \
+            --token "$VERCEL_TOKEN" \
+            --scope iverfinnes-projects
